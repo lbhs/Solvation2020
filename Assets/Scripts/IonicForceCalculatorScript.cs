@@ -106,40 +106,29 @@ public class IonicForceCalculatorScript : MonoBehaviour
                 
                 if (a != b) //&& a.HasComponent<Rigidbody>() && b.HasComponent<Rigidbody>())
                 {
-                    if (a.GetComponent<Redox>() != null && b.GetComponent<Redox>() != null)
+                    if (a.GetComponent<MobileIonScript>() != null && b.GetComponent<MobileIonScript>() != null)
                     {
-                        if (a.GetComponent<PassThroughWallScript>().chargeActive && b.GetComponent<PassThroughWallScript>().chargeActive)
-                        {
-                            Vector3 dir = Vector3.Normalize(b.transform.position - a.transform.position);
-                            a.GetComponent<Rigidbody>().AddForce(dir * Time.fixedDeltaTime * 50f);
-                        }
-                    }
-                    else if (a.GetComponent<MobileIonScript>() != null && b.GetComponent<MobileIonScript>() != null)
-                    {
-                        if (MoleculeKeeperScript.instance.ValidateForceComputation(a, b))
-                        {
-                            //all variable retrieval necessary for force math                   
-                            //float m1 = a.GetComponent<Rigidbody>().mass;
-                            //float m2 = b.GetComponent<Rigidbody>().mass;
-                            float q1 = a.GetComponent<MobileIonScript>().charge;
-                            float q2 = b.GetComponent<MobileIonScript>().charge;
-                            Vector3 dir = Vector3.Normalize(b.transform.position - a.transform.position);
-                            float r = Vector3.Distance(a.transform.position, b.transform.position);
-                            //print("Q1 = " + q1);
-                            //print("Q2 = " + q2);
-                            //print("R =" + r);
-                            //print("k =" + k);
+                        //all variable retrieval necessary for force math                   
+                        //float m1 = a.GetComponent<Rigidbody>().mass;
+                        //float m2 = b.GetComponent<Rigidbody>().mass;
+                        float q1 = a.GetComponent<MobileIonScript>().charge;
+                        float q2 = b.GetComponent<MobileIonScript>().charge;
+                        Vector3 dir = Vector3.Normalize(b.transform.position - a.transform.position);
+                        float r = Vector3.Distance(a.transform.position, b.transform.position);
+                        //print("Q1 = " + q1);
+                        //print("Q2 = " + q2);
+                        //print("R =" + r);
+                        //print("k =" + k);
 
-                            //individually calculates force of gravity and electrostatics
-                            //float Fg = (m1 * m2 * G) / Mathf.Pow(r, 2);
-                            float Fe = -(k * q1 * q2) / Mathf.Pow(r, 2);
+                        //individually calculates force of gravity and electrostatics
+                        //float Fg = (m1 * m2 * G) / Mathf.Pow(r, 2);
+                        float Fe = -(k * q1 * q2) / Mathf.Pow(r, 2);
 
-                            //applies force vector
-                            //must use time.fixeddeltatime here to keep constant framerate with different timescales
-                            a.GetComponent<Rigidbody>().AddForce(dir * Fe * Time.fixedDeltaTime);
-                            //b.GetComponent<Rigidbody>().AddForce(-dir * Fe * Time.fixedDeltaTime);
-                            //print("Fe =" + Fe);
-                        }
+                        //applies force vector
+                        //must use time.fixeddeltatime here to keep constant framerate with different timescales
+                        a.GetComponent<Rigidbody>().AddForce(dir * Fe * Time.fixedDeltaTime);
+                        //b.GetComponent<Rigidbody>().AddForce(-dir * Fe * Time.fixedDeltaTime);
+                        //print("Fe =" + Fe);
                     }
                 }
             }

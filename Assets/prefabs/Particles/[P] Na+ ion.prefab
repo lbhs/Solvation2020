@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 6946605942351130891}
   - component: {fileID: 743811004147936176}
   - component: {fileID: 5788490156201273}
-  - component: {fileID: 3180158835536060295}
-  - component: {fileID: 6590994524596449888}
+  - component: {fileID: 8936237184674147525}
   m_Layer: 0
   m_Name: '[P] Na+ ion'
   m_TagString: Untagged
@@ -29,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167671325498934118}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &4756255451140087607
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -112,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 104
   m_CollisionDetection: 0
---- !u!114 &3180158835536060295
+--- !u!114 &8936237184674147525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,23 +124,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
-  ChargeActive: 0
-  vx: 0
-  vy: 0
-  reductionPotential: 0
-  ReactionPrefab: {fileID: 0}
---- !u!114 &6590994524596449888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167671325498934118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58034c4f19b88124c838aee6595e21ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CationIndex: 1
-  AnionCollidedSound: {fileID: 0}
-  NonBounceMaterial: {fileID: 13400000, guid: 25bed991b6664f24b8d0156f7f64c1a1, type: 2}
